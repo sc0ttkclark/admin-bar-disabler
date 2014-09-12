@@ -9,7 +9,7 @@ Author URI: http://scottkclark.com/
 Text Domain: admin-bar-disabler
 */
 
-load_plugin_textdomain( 'admin-bar-disabler', false, basename( dirname( __FILE__ ) ) . 'languages/' );
+load_plugin_textdomain( 'admin-bar-disabler', false, dirname( plugin_basename( __FILE__ ) ) . 'languages/' );
 
 /**
  * Class Admin_Bar_Disabler

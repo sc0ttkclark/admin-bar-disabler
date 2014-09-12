@@ -33,6 +33,10 @@ OR you can just install it with WordPress by going to Plugins >> Add New >> and 
 
 == Changelog ==
 
+= 1.3 - September 12th, 2014 =
+* Added: Additional translations from http://www.translators.hunstart.hu/projects/plugins/admin-bar-disabler
+* Fixed: load_plugin_textdomain usage
+
 = 1.2 - August 4th, 2014 =
 * Fixed: 3.x personal option for Admin Bar toggle
 

@@ -1,0 +1,92 @@
+# Translation of Admin Bar Disabler in Hungarian
+# This file is distributed under the same license as the Admin Bar Disabler package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2014-05-29 11:13:07+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/0.1\n"
+"Project-Id-Version: Admin Bar Disabler\n"
+
+#: admin-bar-disabler.php:162 admin-bar-disabler.php:219
+#: admin-bar-disabler.php:308 ../admin-bar-disabler/admin-bar-disabler.php:162
+#: ../admin-bar-disabler/admin-bar-disabler.php:219
+#: ../admin-bar-disabler/admin-bar-disabler.php:308
+msgid "Admin Bar Disabler"
+msgstr "Admin Sáv Kikapcsoló"
+
+#: admin-bar-disabler.php:214 ../admin-bar-disabler/admin-bar-disabler.php:214
+msgid "Options saved."
+msgstr "Beállítások mentve."
+
+#: admin-bar-disabler.php:225 admin-bar-disabler.php:315
+#: ../admin-bar-disabler/admin-bar-disabler.php:225
+#: ../admin-bar-disabler/admin-bar-disabler.php:315
+msgid "Disable for Everyone?"
+msgstr "Letiltsa mindenkinek?"
+
+#: admin-bar-disabler.php:229 admin-bar-disabler.php:318
+#: ../admin-bar-disabler/admin-bar-disabler.php:229
+#: ../admin-bar-disabler/admin-bar-disabler.php:318
+msgid "Roles Whitelist"
+msgstr "Fehérlistán szereplők"
+
+#: admin-bar-disabler.php:246 admin-bar-disabler.php:335
+#: ../admin-bar-disabler/admin-bar-disabler.php:246
+#: ../admin-bar-disabler/admin-bar-disabler.php:335
+msgid "ONLY show the Admin Bar for Users with these Role(s) - CTRL + Click for multiple selections"
+msgstr "CSAK azt mutatja az Admin sávban a felhasználóknak ami itt szerepel - CTRL + kattintás segítségével többszörös kijelölést alkalmazhat."
+
+#: admin-bar-disabler.php:250 admin-bar-disabler.php:339
+#: ../admin-bar-disabler/admin-bar-disabler.php:250
+#: ../admin-bar-disabler/admin-bar-disabler.php:339
+msgid "Capabilities Whitelist<br />(comma-separated)"
+msgstr "Képességek engedély lista<br />(veszővel elválasztva)"
+
+#: admin-bar-disabler.php:253 admin-bar-disabler.php:342
+#: ../admin-bar-disabler/admin-bar-disabler.php:253
+#: ../admin-bar-disabler/admin-bar-disabler.php:342
+msgid "ONLY show the Admin Bar for Users with these Capabilies"
+msgstr "CSAK azt mutatja amit az Admin sávban a felhasználóknak felsoroltunk."
+
+#: admin-bar-disabler.php:257 admin-bar-disabler.php:346
+#: ../admin-bar-disabler/admin-bar-disabler.php:257
+#: ../admin-bar-disabler/admin-bar-disabler.php:346
+msgid "Roles Blacklist"
+msgstr "Feketelistán szereplők"
+
+#: admin-bar-disabler.php:274 admin-bar-disabler.php:363
+#: ../admin-bar-disabler/admin-bar-disabler.php:274
+#: ../admin-bar-disabler/admin-bar-disabler.php:363
+msgid "DO NOT show the Admin Bar for Users with these Role(s) - CTRL + Click for multiple selections"
+msgstr "Ne mutatssa az Admin sávban a felhasználóknak ami itt szerepel - CTRL + kattintás segítségével többszörös kijelölést alkalmazhat."
+
+#: admin-bar-disabler.php:278 admin-bar-disabler.php:367
+#: ../admin-bar-disabler/admin-bar-disabler.php:278
+#: ../admin-bar-disabler/admin-bar-disabler.php:367
+msgid "Capabilities Blacklist<br />(comma-separated)"
+msgstr "Képességek Feketelista<br />(veszővel elválasztva)"
+
+#: admin-bar-disabler.php:281 admin-bar-disabler.php:370
+#: ../admin-bar-disabler/admin-bar-disabler.php:281
+#: ../admin-bar-disabler/admin-bar-disabler.php:370
+msgid "DO NOT show the Admin Bar for Users with these Capabilies"
+msgstr "Ne mutassa amit az Admin sávban a felhasználóknak felsoroltunk."
+
+#: admin-bar-disabler.php:286 admin-bar-disabler.php:375
+#: ../admin-bar-disabler/admin-bar-disabler.php:286
+#: ../admin-bar-disabler/admin-bar-disabler.php:375
+msgid "Save Changes"
+msgstr "Változtatások mentése"
+
+#: admin-bar-disabler.php:286 admin-bar-disabler.php:375
+#: ../admin-bar-disabler/admin-bar-disabler.php:286
+#: ../admin-bar-disabler/admin-bar-disabler.php:375
+msgid "Do not use Blacklist in combination with Whitelist, in all cases Whitelist overrides Blacklist"
+msgstr "Ne használja a Feketelistát együtt Fehér listával mert, minden esetben a Fehér lista felülbírálja a Feketelistát."
+
+#: admin-bar-disabler.php:303 ../admin-bar-disabler/admin-bar-disabler.php:303
+msgid "Options saved"
+msgstr "Beállítások mentése"
