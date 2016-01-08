@@ -3,8 +3,8 @@ Contributors: sc0ttkclark
 Donate link: http://scottkclark.com/
 Tags: admin bar, admin menu, disable, 3.1, wordpress multisite, multisite, remove, hide
 Requires at least: 3.1
-Tested up to: 4.0
-Stable tag: 1.2
+Tested up to: 4.4
+Stable tag: 1.3
 
 Disable the WP Admin Bar in 3.1+ entirely, or only for roles and capabilities which aren't in the 'whitelist' or 'blacklist'.
 
@@ -33,8 +33,7 @@ OR you can just install it with WordPress by going to Plugins >> Add New >> and 
 
 == Changelog ==
 
-= 1.3 - September 12th, 2014 =
-* Added: Additional translations from http://www.translators.hunstart.hu/projects/plugins/admin-bar-disabler
+= 1.3 - January 8th, 2015 =
 * Fixed: load_plugin_textdomain usage
 
 = 1.2 - August 4th, 2014 =

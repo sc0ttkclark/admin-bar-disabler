@@ -3,13 +3,11 @@
 Plugin Name: Admin Bar Disabler
 Plugin URI: http://scottkclark.com/
 Description: Disable the WP Admin Bar in 3.1+ entirely, or only for roles and capabilities which aren't in the 'whitelist' or 'blacklist'.
-Version: 1.2
+Version: 1.3
 Author: Scott Kingsley Clark
 Author URI: http://scottkclark.com/
 Text Domain: admin-bar-disabler
 */
-
-load_plugin_textdomain( 'admin-bar-disabler', false, dirname( plugin_basename( __FILE__ ) ) . 'languages/' );
 
 /**
  * Class Admin_Bar_Disabler
