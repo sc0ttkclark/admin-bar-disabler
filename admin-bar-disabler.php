@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Admin Bar Disabler
-Plugin URI: http://scottkclark.com/
-Description: Disable the WP Admin Bar in 3.1+ entirely, or only for roles and capabilities which aren't in the 'whitelist' or 'blacklist'.
-Version: 1.3
+Plugin URI: https://www.scottkclark.com/
+Description: Disable the WP Admin Bar on the frontend of sites for specific roles and capabilities based on whitelist and blacklist settings.
+Version: 1.4
 Author: Scott Kingsley Clark
-Author URI: http://scottkclark.com/
+Author URI: https://www.scottkclark.com/
 Text Domain: admin-bar-disabler
 */
 
@@ -53,7 +53,7 @@ class Admin_Bar_Disabler {
 	 */
 	public function network_activated() {
 
-		if ( !function_exists( 'is_plugin_active_for_network' ) ) {
+		if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
 			$plugins = get_site_option( 'active_sitewide_plugins', array() );
 
 			if ( isset( $plugins[ plugin_basename( __FILE__ ) ] ) ) {
@@ -75,29 +75,29 @@ class Admin_Bar_Disabler {
 	public function get_settings( $inherit = false ) {
 
 		$settings = array(
-			'disable_all' => (boolean) get_option( 'admin_bar_disabler_disable_all', 0 ),
+			'disable_all'     => (boolean) get_option( 'admin_bar_disabler_disable_all', 0 ),
 			'whitelist_roles' => (array) get_option( 'admin_bar_disabler_whitelist_roles', array() ),
-			'whitelist_caps' => get_option( 'admin_bar_disabler_whitelist_caps', '' ),
+			'whitelist_caps'  => get_option( 'admin_bar_disabler_whitelist_caps', '' ),
 			'blacklist_roles' => (array) get_option( 'admin_bar_disabler_blacklist_roles', array() ),
-			'blacklist_caps' => get_option( 'admin_bar_disabler_blacklist_caps', '' )
+			'blacklist_caps'  => get_option( 'admin_bar_disabler_blacklist_caps', '' ),
 		);
 
-		$settings[ 'whitelist_roles' ] = array_map( 'trim', array_unique( array_filter( $settings[ 'whitelist_roles' ] ) ) );
+		$settings['whitelist_roles'] = array_map( 'trim', array_unique( array_filter( $settings['whitelist_roles'] ) ) );
 
-		$settings[ 'whitelist_caps' ] = explode( ',', $settings[ 'whitelist_caps' ] );
-		$settings[ 'whitelist_caps' ] = array_map( 'trim', array_unique( array_filter( $settings[ 'whitelist_caps' ] ) ) );
+		$settings['whitelist_caps'] = explode( ',', $settings['whitelist_caps'] );
+		$settings['whitelist_caps'] = array_map( 'trim', array_unique( array_filter( $settings['whitelist_caps'] ) ) );
 
-		$settings[ 'blacklist_roles' ] = array_map( 'trim', array_unique( array_filter( $settings[ 'blacklist_roles' ] ) ) );
+		$settings['blacklist_roles'] = array_map( 'trim', array_unique( array_filter( $settings['blacklist_roles'] ) ) );
 
-		$settings[ 'blacklist_caps' ] = explode( ',', $settings[ 'blacklist_caps' ] );
-		$settings[ 'blacklist_caps' ] = array_map( 'trim', array_unique( array_filter( $settings[ 'blacklist_caps' ] ) ) );
+		$settings['blacklist_caps'] = explode( ',', $settings['blacklist_caps'] );
+		$settings['blacklist_caps'] = array_map( 'trim', array_unique( array_filter( $settings['blacklist_caps'] ) ) );
 
 		// Inherit settings from network settings
 		if ( $inherit && is_multisite() ) {
 			$site_settings = $this->get_site_settings();
 
 			foreach ( $site_settings as $setting => $value ) {
-				if ( !isset( $settings[ $setting ] ) || empty( $settings[ $setting ] ) ) {
+				if ( ! isset( $settings[ $setting ] ) || empty( $settings[ $setting ] ) ) {
 					$settings[ $setting ] = $value;
 				}
 			}
@@ -115,22 +115,22 @@ class Admin_Bar_Disabler {
 	public function get_site_settings() {
 
 		$settings = array(
-			'disable_all' => (boolean) get_site_option( 'admin_bar_disabler_disable_all', 0 ),
+			'disable_all'     => (boolean) get_site_option( 'admin_bar_disabler_disable_all', 0 ),
 			'whitelist_roles' => (array) get_site_option( 'admin_bar_disabler_whitelist_roles', array() ),
-			'whitelist_caps' => get_site_option( 'admin_bar_disabler_whitelist_caps', '' ),
+			'whitelist_caps'  => get_site_option( 'admin_bar_disabler_whitelist_caps', '' ),
 			'blacklist_roles' => (array) get_site_option( 'admin_bar_disabler_blacklist_roles', array() ),
-			'blacklist_caps' => get_site_option( 'admin_bar_disabler_blacklist_caps', '' )
+			'blacklist_caps'  => get_site_option( 'admin_bar_disabler_blacklist_caps', '' ),
 		);
 
-		$settings[ 'whitelist_roles' ] = array_map( 'trim', array_unique( array_filter( $settings[ 'whitelist_roles' ] ) ) );
+		$settings['whitelist_roles'] = array_map( 'trim', array_unique( array_filter( $settings['whitelist_roles'] ) ) );
 
-		$settings[ 'whitelist_caps' ] = explode( ',', $settings[ 'whitelist_caps' ] );
-		$settings[ 'whitelist_caps' ] = array_map( 'trim', array_unique( array_filter( $settings[ 'whitelist_caps' ] ) ) );
+		$settings['whitelist_caps'] = explode( ',', $settings['whitelist_caps'] );
+		$settings['whitelist_caps'] = array_map( 'trim', array_unique( array_filter( $settings['whitelist_caps'] ) ) );
 
-		$settings[ 'blacklist_roles' ] = array_map( 'trim', array_unique( array_filter( $settings[ 'blacklist_roles' ] ) ) );
+		$settings['blacklist_roles'] = array_map( 'trim', array_unique( array_filter( $settings['blacklist_roles'] ) ) );
 
-		$settings[ 'blacklist_caps' ] = explode( ',', $settings[ 'blacklist_caps' ] );
-		$settings[ 'blacklist_caps' ] = array_map( 'trim', array_unique( array_filter( $settings[ 'blacklist_caps' ] ) ) );
+		$settings['blacklist_caps'] = explode( ',', $settings['blacklist_caps'] );
+		$settings['blacklist_caps'] = array_map( 'trim', array_unique( array_filter( $settings['blacklist_caps'] ) ) );
 
 		return $settings;
 
@@ -145,19 +145,21 @@ class Admin_Bar_Disabler {
 
 		$settings = $this->get_settings( true );
 
-		if ( $settings[ 'disable_all' ] ) {
+		if ( $settings['disable_all'] ) {
 			return $this->disable();
 		}
 
-		$whitelist_roles = $settings[ 'whitelist_roles' ];
+		$whitelist_roles = $settings['whitelist_roles'];
 
-		if ( !empty( $whitelist_roles ) ) {
-			if ( !is_array( $whitelist_roles ) ) {
+		$user = new WP_User( get_current_user_id() );
+
+		if ( ! empty( $whitelist_roles ) ) {
+			if ( ! is_array( $whitelist_roles ) ) {
 				$whitelist_roles = array( $whitelist_roles );
 			}
 
 			foreach ( $whitelist_roles as $role ) {
-				if ( current_user_can( $role ) ) {
+				if ( in_array( $role, $user->roles, true ) ) {
 					return false;
 				}
 			}
@@ -165,11 +167,11 @@ class Admin_Bar_Disabler {
 			return $this->disable();
 		}
 
-		$whitelist_caps = $settings[ 'whitelist_caps' ];
+		$whitelist_caps = $settings['whitelist_caps'];
 
-		if ( !empty( $whitelist_caps ) ) {
+		if ( ! empty( $whitelist_caps ) ) {
 			foreach ( $whitelist_caps as $cap ) {
-				if ( current_user_can( $cap ) ) {
+				if ( $user->has_cap( $cap ) ) {
 					return false;
 				}
 			}
@@ -177,25 +179,25 @@ class Admin_Bar_Disabler {
 			return $this->disable();
 		}
 
-		$blacklist_roles = $settings[ 'blacklist_roles' ];
+		$blacklist_roles = $settings['blacklist_roles'];
 
-		if ( !empty( $blacklist_roles ) ) {
-			if ( !is_array( $blacklist_roles ) ) {
+		if ( ! empty( $blacklist_roles ) ) {
+			if ( ! is_array( $blacklist_roles ) ) {
 				$blacklist_roles = array( $blacklist_roles );
 			}
 
 			foreach ( $blacklist_roles as $role ) {
-				if ( !current_user_can( $role ) ) {
+				if ( in_array( $role, $user->roles, true ) ) {
 					return $this->disable();
 				}
 			}
 		}
 
-		$blacklist_caps = $settings[ 'blacklist_caps' ];
+		$blacklist_caps = $settings['blacklist_caps'];
 
-		if ( !empty( $blacklist_caps ) ) {
+		if ( ! empty( $blacklist_caps ) ) {
 			foreach ( $blacklist_caps as $cap ) {
-				if ( !current_user_can( $cap ) ) {
+				if ( $user->has_cap( $cap ) ) {
 					return $this->disable();
 				}
 			}
@@ -213,9 +215,8 @@ class Admin_Bar_Disabler {
 	public function disable() {
 
 		if ( ! is_admin() ) {
-			add_filter( 'show_admin_bar', '__return_false' );
-		}
-		else {
+			add_filter( 'show_admin_bar', '__return_false', 999 );
+		} else {
 			// WP 3.x support
 			remove_action( 'personal_options', '_admin_bar_preferences' );
 
@@ -248,7 +249,10 @@ class Admin_Bar_Disabler {
 	 */
 	public function admin_menu() {
 
-		add_options_page( __( 'Admin Bar Disabler', 'admin-bar-disabler' ), __( 'Admin Bar Disabler', 'admin-bar-disabler' ), 'manage_options', 'admin_bar_disabler', array( $this, 'settings_page' ) );
+		add_options_page( __( 'Admin Bar Disabler', 'admin-bar-disabler' ), __( 'Admin Bar Disabler', 'admin-bar-disabler' ), 'manage_options', 'admin_bar_disabler', array(
+			$this,
+			'settings_page',
+		) );
 
 	}
 
@@ -257,7 +261,10 @@ class Admin_Bar_Disabler {
 	 */
 	public function network_admin_menu() {
 
-		add_submenu_page( 'settings.php', __( 'Admin Bar Disabler', 'admin-bar-disabler' ), __( 'Admin Bar Disabler', 'admin-bar-disabler' ), 'manage_network_options', 'admin_bar_disabler', array( $this, 'settings_page' ) );
+		add_submenu_page( 'settings.php', __( 'Admin Bar Disabler', 'admin-bar-disabler' ), __( 'Admin Bar Disabler', 'admin-bar-disabler' ), 'manage_network_options', 'admin_bar_disabler', array(
+			$this,
+			'settings_page',
+		) );
 
 	}
 
@@ -271,10 +278,9 @@ class Admin_Bar_Disabler {
 		$settings = $this->get_site_settings();
 
 		foreach ( $settings as $field => $value ) {
-			if ( isset( $_POST[ 'admin_bar_disabler_' . $field ] ) && !empty( $_POST[ 'admin_bar_disabler_' . $field ] ) ) {
+			if ( isset( $_POST[ 'admin_bar_disabler_' . $field ] ) && ! empty( $_POST[ 'admin_bar_disabler_' . $field ] ) ) {
 				update_site_option( 'admin_bar_disabler_' . $field, $_POST[ 'admin_bar_disabler_' . $field ] );
-			}
-			else {
+			} else {
 				delete_site_option( 'admin_bar_disabler_' . $field );
 			}
 		}
@@ -303,129 +309,129 @@ class Admin_Bar_Disabler {
 
 		global $wp_roles;
 
-		if ( !isset( $wp_roles ) ) {
+		if ( ! isset( $wp_roles ) ) {
 			$wp_roles = new WP_Roles();
 		}
 
 		$roles = $wp_roles->get_names();
 
-		if ( $is_network_admin && isset( $_GET[ 'settings-updated' ] ) ) {
-	?>
-		<div id="message" class="updated"><p><strong><?php _e( 'Settings saved.' ); ?></strong></p></div>
-	<?php
+		if ( $is_network_admin && isset( $_GET['settings-updated'] ) ) {
+			?>
+			<div id="message" class="updated"><p><strong><?php esc_html_e( 'Settings saved.' ); ?></strong></p></div>
+			<?php
 		}
-	?>
+		?>
 		<div class="wrap">
-			<h2><?php _e( 'Admin Bar Disabler', 'admin-bar-disabler' ); ?></h2>
+			<h2><?php esc_html_e( 'Admin Bar Disabler', 'admin-bar-disabler' ); ?></h2>
+
+			<p><?php esc_html_e( 'This plugin disables the Admin Bar from the frontend only, it does not affect the dashboard.', 'admin-bar-disabler' ); ?></p>
 
 			<form method="post" action="<?php echo esc_attr( $action ); ?>">
 				<?php
-					if ( $is_network_admin ) {
-						wp_nonce_field( 'admin_bar_disabler' );
-					}
-					else {
-						settings_fields( 'admin-bar-disabler-settings-group' );
-						do_settings_sections( 'admin-bar-disabler-settings-group' );
-					}
+				if ( $is_network_admin ) {
+					wp_nonce_field( 'admin_bar_disabler' );
+				} else {
+					settings_fields( 'admin-bar-disabler-settings-group' );
+					do_settings_sections( 'admin-bar-disabler-settings-group' );
+				}
 				?>
 				<table class="form-table">
 					<tr valign="top">
 						<th scope="row">
 							<label for="admin_bar_disabler_disable_all">
-								<?php _e( 'Disable for Everyone?', 'admin-bar-disabler' ); ?>
+								<?php esc_html_e( 'Disable for Everyone?', 'admin-bar-disabler' ); ?>
 							</label>
 						</th>
 						<td>
-							<input type="checkbox" name="admin_bar_disabler_disable_all" id="admin_bar_disabler_disable_all" value="1"<?php checked( $settings[ 'disable_all' ] ); ?> />
+							<input type="checkbox" name="admin_bar_disabler_disable_all" id="admin_bar_disabler_disable_all" value="1"<?php checked( $settings['disable_all'] ); ?> />
 						</td>
 					</tr>
 					<tr valign="top">
 						<th scope="row">
 							<label for="admin_bar_disabler_whitelist_roles">
-								<?php _e( 'Roles Whitelist', 'admin-bar-disabler' ); ?>
+								<?php esc_html_e( 'Roles Whitelist', 'admin-bar-disabler' ); ?>
 							</label>
 						</th>
 						<td>
 							<select name="admin_bar_disabler_whitelist_roles[]" id="admin_bar_disabler_whitelist_roles" size="10" style="height:auto;" multiple="multiple">
 								<?php
-									$whitelist_roles = $settings[ 'whitelist_roles' ];
+								$whitelist_roles = $settings['whitelist_roles'];
 
-									foreach ( $roles as $role => $name ) {
-								?>
+								foreach ( $roles as $role => $name ) {
+									?>
 									<option value="<?php echo esc_attr( $role ); ?>"<?php selected( in_array( $role, $whitelist_roles ) ); ?>><?php echo esc_html( $name ); ?></option>
-								<?php
-									}
+									<?php
+								}
 								?>
-							</select>
-							<br />
-							<em><?php _e( 'ONLY show the Admin Bar for Users with these Role(s) - CTRL + Click for multiple selections', 'admin-bar-disabler' ); ?></em>
+							</select> <br />
+							<em><?php esc_html_e( 'ONLY show the Admin Bar for Users with these Role(s) - CTRL + Click for multiple selections', 'admin-bar-disabler' ); ?></em>
 						</td>
 					</tr>
 					<tr valign="top">
 						<th scope="row">
 							<label for="admin_bar_disabler_whitelist_caps">
-								<?php _e( 'Capabilities Whitelist<br />(comma-separated)', 'admin-bar-disabler' ); ?>
+								<?php esc_html_e( 'Capabilities Whitelist<br />(comma-separated)', 'admin-bar-disabler' ); ?>
 							</label>
 						</th>
 						<td>
 							<?php
-								$whitelist_caps = implode( ',', $settings[ 'whitelist_caps' ] );
+							$whitelist_caps = implode( ',', $settings['whitelist_caps'] );
 							?>
 							<input type="text" name="admin_bar_disabler_whitelist_caps" id="admin_bar_disabler_whitelist_caps" value="<?php echo esc_attr( $whitelist_caps ); ?>" />
 							<br />
-							<em><?php _e( 'ONLY show the Admin Bar for Users with these Capabilies', 'admin-bar-disabler' ); ?></em>
+							<em><?php esc_html_e( 'ONLY show the Admin Bar for Users with these Capabilies', 'admin-bar-disabler' ); ?></em>
 						</td>
 					</tr>
 					<tr valign="top">
 						<th scope="row">
 							<label for="admin_bar_disabler_blacklist_roles">
-								<?php _e( 'Roles Blacklist', 'admin-bar-disabler' ); ?>
+								<?php esc_html_e( 'Roles Blacklist', 'admin-bar-disabler' ); ?>
 							</label>
 						</th>
 						<td>
 							<select name="admin_bar_disabler_blacklist_roles[]" id="admin_bar_disabler_blacklist_roles" size="10" style="height:auto;" multiple="multiple">
 								<?php
-									$blacklist_roles = $settings[ 'blacklist_roles' ];
+								$blacklist_roles = $settings['blacklist_roles'];
 
-									foreach ( $roles as $role => $name ) {
-								?>
+								foreach ( $roles as $role => $name ) {
+									?>
 									<option value="<?php echo esc_attr( $role ); ?>"<?php selected( in_array( $role, $blacklist_roles ) ); ?>><?php echo esc_html( $name ); ?></option>
-								<?php
-									}
+									<?php
+								}
 								?>
-							</select>
-							<br />
-							<em><?php _e( 'DO NOT show the Admin Bar for Users with these Role(s) - CTRL + Click for multiple selections', 'admin-bar-disabler' ); ?></em>
+							</select> <br />
+							<em><?php esc_html_e( 'DO NOT show the Admin Bar for Users with these Role(s) - CTRL + Click for multiple selections', 'admin-bar-disabler' ); ?></em>
 						</td>
 					</tr>
 					<tr valign="top">
 						<th scope="row">
 							<label for="admin_bar_disabler_blacklist_caps">
-								<?php _e( 'Capabilities Blacklist<br />(comma-separated)', 'admin-bar-disabler' ); ?>
+								<?php esc_html_e( 'Capabilities Blacklist<br />(comma-separated)', 'admin-bar-disabler' ); ?>
 							</label>
 						</th>
 						<td>
 							<?php
-								$blacklist_caps = implode( ',', $settings[ 'blacklist_caps' ] );
+							$blacklist_caps = implode( ',', $settings['blacklist_caps'] );
 							?>
 							<input type="text" name="admin_bar_disabler_blacklist_caps" id="admin_bar_disabler_blacklist_caps" value="<?php echo esc_attr( $blacklist_caps ); ?>" />
-							<br /><em><?php _e( 'DO NOT show the Admin Bar for Users with these Capabilies', 'admin-bar-disabler' ); ?></em>
+							<br /><em><?php esc_html_e( 'DO NOT show the Admin Bar for Users with these Capabilies', 'admin-bar-disabler' ); ?></em>
 						</td>
 					</tr>
 				</table>
 				<p class="submit">
-					<input type="submit" class="button-primary" value="<?php _e( 'Save Changes', 'admin-bar-disabler' ); ?>" />&nbsp;&nbsp;
+					<input type="submit" class="button-primary" value="<?php esc_attr_e( 'Save Changes', 'admin-bar-disabler' ); ?>" />&nbsp;&nbsp;
 					<small>
-						<strong><?php _e( 'Do not use Blacklist in combination with Whitelist, in all cases Whitelist overrides Blacklist', 'admin-bar-disabler' ); ?></strong>
+						<strong><?php esc_html_e( 'Do not use Blacklist in combination with Whitelist, in all cases Whitelist overrides Blacklist', 'admin-bar-disabler' ); ?></strong>
 					</small>
 				</p>
 			</form>
 		</div>
-	<?php
+		<?php
 
 	}
 
 }
 
 global $admin_bar_disabler;
+
 $admin_bar_disabler = new Admin_Bar_Disabler();
