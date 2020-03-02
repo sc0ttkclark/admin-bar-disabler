@@ -3,7 +3,7 @@ Contributors: sc0ttkclark
 Donate link: https://www.scottkclark.com/
 Tags: admin bar, admin menu, toolbar
 Requires at least: 3.1
-Tested up to: 4.9.8
+Tested up to: 5.4
 Stable tag: 1.4
 
 == Description ==
