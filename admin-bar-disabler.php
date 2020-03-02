@@ -2,8 +2,8 @@
 /*
 Plugin Name: Admin Bar Disabler
 Plugin URI: https://www.scottkclark.com/
-Description: Disable the WP Admin Bar on the frontend of sites for specific roles and capabilities based on whitelist and blacklist settings.
-Version: 1.4
+Description: Disable the WP Admin Bar / Toolbar on the frontend of sites for specific roles and capabilities based on whitelist and blacklist settings.
+Version: 1.4.1
 Author: Scott Kingsley Clark
 Author URI: https://www.scottkclark.com/
 Text Domain: admin-bar-disabler
@@ -370,7 +370,9 @@ class Admin_Bar_Disabler {
 					<tr valign="top">
 						<th scope="row">
 							<label for="admin_bar_disabler_whitelist_caps">
-								<?php esc_html_e( 'Capabilities Whitelist<br />(comma-separated)', 'admin-bar-disabler' ); ?>
+								<?php esc_html_e( 'Capabilities Whitelist', 'admin-bar-disabler' ); ?>
+								<br />
+								<?php esc_html_e( '(comma-separated)', 'admin-bar-disabler' ); ?>
 							</label>
 						</th>
 						<td>
@@ -406,7 +408,9 @@ class Admin_Bar_Disabler {
 					<tr valign="top">
 						<th scope="row">
 							<label for="admin_bar_disabler_blacklist_caps">
-								<?php esc_html_e( 'Capabilities Blacklist<br />(comma-separated)', 'admin-bar-disabler' ); ?>
+								<?php esc_html_e( 'Capabilities Blacklist', 'admin-bar-disabler' ); ?>
+								<br />
+								<?php esc_html_e( '(comma-separated)', 'admin-bar-disabler' ); ?>
 							</label>
 						</th>
 						<td>

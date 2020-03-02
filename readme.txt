@@ -16,6 +16,7 @@ Other plugins you might be interested in:
 
 * Showing the Admin Bar in more cases - [Always Show Admin Bar plugin](http://wordpress.org/plugins/always-show-admin-bar/)
 * Showing the Admin Bar to logged out users - [Logged Out Admin Bar plugin](http://wordpress.org/plugins/logged-out-admin-bar/)
+* Customizing the Admin area based on role - [Adminimize](https://wordpress.org/plugins/adminimize/)
 
 == Installation ==
 
@@ -31,6 +32,10 @@ OR you can just install it with WordPress by going to Plugins >> Add New >> and 
 1. **Admin Bar Disabler Settings** - Set up per-site settings or if this plugin is activated network-wide then you can also set up network-wide settings through the Network Admin.
 
 == Changelog ==
+
+= 1.4.1 - MArch 2nd, 2020 =
+* Fixed: Updated compatibility with WP 5.4
+* Fixed: Fix some HTML showing up on the page
 
 = 1.4 - September 3rd, 2018 =
 * Fixed: Roles/capabilities blacklist logic is no longer inverted
