@@ -3,12 +3,15 @@ Contributors: sc0ttkclark
 Donate link: https://www.scottkclark.com/
 Tags: admin bar, admin menu, toolbar
 Requires at least: 3.1
-Tested up to: 5.4
-Stable tag: 1.4.1
+Tested up to: 5.9
+Requires PHP: 5.6
+Stable tag: 1.4.2
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Pretty easy setup.. just install and activate it on the site of your choice (or network activate) and setup the settings however you'd like.
+Pretty easy setup.. just install and activate it on the site of your choice (or network activate) and set up the settings however you'd like.
 
 This plugin supports both Per-Site and Per-Network (WordPress Multisite) settings, so you can fine tune your options based on your needs.
 
@@ -17,6 +20,14 @@ Other plugins you might be interested in:
 * Showing the Admin Bar in more cases - [Always Show Admin Bar plugin](http://wordpress.org/plugins/always-show-admin-bar/)
 * Showing the Admin Bar to logged out users - [Logged Out Admin Bar plugin](http://wordpress.org/plugins/logged-out-admin-bar/)
 * Customizing the Admin area based on role - [Adminimize](https://wordpress.org/plugins/adminimize/)
+
+== Frequently Asked Questions ==
+
+= Admin Bar vs Toolbar =
+
+When this feature first went out, it was called the Admin Bar but it shows up in other contexts as well so it eventually settled on being called the Toolbar.
+
+Call it whatever you would like: Admin Bar, Toolbar, Admin Toolbar, or the Top WordPress Bar :) it's covered by this plugin.
 
 == Installation ==
 
@@ -33,12 +44,17 @@ OR you can just install it with WordPress by going to Plugins >> Add New >> and 
 
 == Changelog ==
 
-= 1.4.1 - MArch 2nd, 2020 =
-* Fixed: Updated compatibility with WP 5.4
+= 1.4.2 - March 5th, 2022 =
+* Fixed: Adjusted text for when to include roles/capabilities to be "Inclusion List" and when to exclude roles/capabilities to be "Exclusion List".
+* Fixed: Updated compatibility with WP 5.9+
+* Updated: Now requiring PHP 5.6+
+
+= 1.4.1 - March 2nd, 2020 =
+* Fixed: Updated compatibility with WP 5.4+
 * Fixed: Fix some HTML showing up on the page
 
 = 1.4 - September 3rd, 2018 =
-* Fixed: Roles/capabilities blacklist logic is no longer inverted
+* Fixed: Roles/capabilities exclusion list logic is no longer inverted
 * Fixed: Set priority of show_admin_bar to 999 to prevent conflict with other plugins
 
 = 1.3 - January 8th, 2015 =
